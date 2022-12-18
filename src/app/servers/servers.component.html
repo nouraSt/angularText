@@ -1,0 +1,16 @@
+<p>servers works!</p>
+<button class="btn btn-primary" [disabled]="allowServer" (click)="oncreateServer()">Delete this</button>
+<input type="text" class="form-control" (input)="onUpdateServerNom($event)"/>
+<p>{{serverName}}</p>
+<input type="text" class="form-control" [(ngModel)]="serverName"/>
+<p *ngIf="serviceCreated";else noServer>server was created, server name is {{serverName}} </p>
+<ng-template #noServer>
+    <p></p>
+</ng-template>
+<app-server *ngFor="let server of servers">
+
+</app-server>
+<button (click)="onClickToglle()">Display details</button>
+<p *ngIf="btnClicked">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed eaque laboriosam ipsam fugiat cupiditate recusandae, quae vel consequatur totam dignissimos quasi est tempora fuga nihil, suscipit numquam aspernatur! Pariatur, commodi.</p>
+
+<app-server (serverCreated)="onServerAdded($event)"></app-server>
